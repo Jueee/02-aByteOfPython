@@ -1,0 +1,9 @@
+create database link ncm 
+  connect to hsncm IDENTIFIED BY ncm 
+  using '( DESCRIPTION =
+              ( ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 192.168.50.74)(PORT = 1521)) )
+              ( CONNECT_DATA = (SERVER = DEDICATED)(SERVICE_NAME = orcl) )
+           )';
+          
+delete from TSYS_KIND t where t.KIND_CODE='NCM_PARAM';
+commit;
